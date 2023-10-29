@@ -216,6 +216,8 @@ class ClientS3Sdk
 
     public function check(string $key = 'check.txt'): bool
     {
+        $this->logDebug(__METHOD__);
+
         $date = date("Y-m-d H:i:s");
         if ($this->putObject($key, $date)) {
             if ($this->isObjectExist($key)) {
